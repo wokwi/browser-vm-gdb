@@ -1,0 +1,13 @@
+--- package/gdb/gdb.mk  2021-02-15 12:04:30.470000000 +0000
++++ package/gdb/gdb.mk  2021-02-15 12:06:12.270000000 +0000
+@@ -151,9 +151,9 @@
+ 	--disable-werror \
+ 	--enable-static \
+ 	--without-mpfr
+-
+ ifeq ($(BR2_PACKAGE_GDB_DEBUGGER),y)
+ GDB_CONF_OPTS += \
++	--target avr \
+ 	--enable-gdb \
+ 	--with-curses
+ GDB_DEPENDENCIES = ncurses \

@@ -48,4 +48,9 @@ ENV LANG='C' \
 VOLUME /build
 
 WORKDIR /root/buildroot-${BUILD_ROOT_RELEASE}
+
+# patch GDB for avr
+COPY gdb-avr.patch .
+RUN patch -p0 < gdb-avr.patch
+
 ENTRYPOINT ["/buildroot-v86/build-v86.sh"]
