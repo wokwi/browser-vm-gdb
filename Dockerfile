@@ -49,8 +49,8 @@ VOLUME /build
 
 WORKDIR /root/buildroot-${BUILD_ROOT_RELEASE}
 
-# patch GDB for avr
-COPY gdb-avr.patch .
-RUN patch -p0 < gdb-avr.patch
+# patch GDB for avr+arm (multiarch)
+COPY gdb-multiarch.patch .
+RUN patch -p0 < gdb-multiarch.patch
 
 ENTRYPOINT ["/buildroot-v86/build-v86.sh"]
